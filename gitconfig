@@ -1,0 +1,10 @@
+[include]
+    path = ~/.config/localconfig/gitconfig
+[core]
+	editor = nvim
+[alias]
+	tree = log --graph --full-history --all --color --date=short --pretty=format:\"%Cred%x09%h %Creset%ad%Cblue%d %Creset %s %C(bold)(%an)%Creset\"
+	ac = commit -am
+	amend = git commit --amend
+[pull]
+	rebase = false

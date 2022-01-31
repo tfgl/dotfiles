@@ -1,0 +1,4 @@
+backup.tar.gz
+localconfig
+env
+nvim/plugin/packer_compiled.lua
