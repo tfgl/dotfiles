@@ -1,4 +1,5 @@
 backup.tar.gz
+*.bck
 localconfig
 env
 nvim/plugin/packer_compiled.lua

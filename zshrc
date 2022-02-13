@@ -74,6 +74,9 @@ CASE_SENSITIVE="true"
 plugins=(
     git
     colored-man-pages
+    zsh-syntax-highlighting
+    zsh-autosuggestions
+    zsh-completions
 )
 
 source $ZSH/oh-my-zsh.sh
