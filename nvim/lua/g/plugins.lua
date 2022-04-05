@@ -17,10 +17,10 @@ end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
 vim.cmd [[
-augroup packer_user_config
-autocmd!
-autocmd BufWritePost plugins.lua source <afile> | PackerSync
-augroup end
+  augroup packer_user_config
+  autocmd!
+  autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  augroup end
 ]]
 
 -- Use a protected call so we don't error out on first use
@@ -56,6 +56,7 @@ return packer.startup(function(use)
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
+  use 'ryanoasis/vim-devicons'
 
   -- git
   use 'tpope/vim-fugitive'
@@ -88,14 +89,17 @@ return packer.startup(function(use)
   use 'hrsh7th/cmp-cmdline'
   use 'quangnguyen30192/cmp-nvim-ultisnips'
 
-  -- use 'mfussenegger/nvim-jdtls'
+  use 'mfussenegger/nvim-jdtls'
 
   -- telescope
   use {
     "nvim-telescope/telescope.nvim",
     config = function()
       require('telescope').setup({
-        defaults = { file_ignore_patterns = { "node_modules", ".ccls-cache" }}
+        defaults = {
+          file_ignore_patterns = { "node_modules", ".ccls-cache" },
+          color_devicons = true
+        }
       })
     end
   }

@@ -21,11 +21,11 @@
         "interval": 1
     },
     "cpu": {
-        "format": "{usage}% ",
+        "format": "{usage}% ",
         "tooltip": false
     },
     "memory": {
-        "format": "{}% "
+        "format": "{}% "
     },
     "custom/temperature": {
         "exec": "echo $(temp) ",
@@ -48,15 +48,15 @@
     },
     "network": {
         "format-wifi": "{essid} {signalStrength}% ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon}",
-        "format-muted": " {format_source}",
+        "format-muted": "ﳌ {format_source}",
         "format-icons": {
             "headphone": "",
             "hands-free": "",

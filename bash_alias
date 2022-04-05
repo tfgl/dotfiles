@@ -36,3 +36,6 @@ alias cpost='curl -X POST -H "Content-Type: application/json"'
 alias todo='vim ~/Documents/neorg/todo.neorg'
 
 alias h='cut -d";" -f2 <<< $(cat ~/.zsh_history) | fzf'
+
+alias link='ln -sfivr'
+alias ip='ip -c'

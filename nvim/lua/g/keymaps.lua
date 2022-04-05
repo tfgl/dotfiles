@@ -56,6 +56,7 @@ nmap("<leader>wo", ":only<CR>")
 nmap("<leader>ff", ":lua require('telescope.builtin').find_files()<CR>")
 nmap("<leader>fs", ":w<CR>")
 nmap("<leader>fp", ":lua require('g.telescope').dotfiles()<CR>")
+nmap("<leader>fts", ":set ft=sh<CR>")
 
 nmap("<leader>ot", ":sp | te <CR>")
 nmap("<leader>os", ":vs ~/Documents/neorg/scratchbuff.norg<CR>")

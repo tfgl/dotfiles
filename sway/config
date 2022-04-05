@@ -8,7 +8,8 @@ set $up k
 set $right l
 set $term alacritty
 set $menu dmenu
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu wofi -GS run
+#set $menu dmenu_path | dmenu | xargs swaymsg exec --
 ### Output configuration
 output * bg ~/.cache/wallpaper fill
 ### Input configuration
@@ -26,11 +27,13 @@ output * bg ~/.cache/wallpaper fill
 # Read `man 5 sway-input` for more information about this section.
 
 ### Key bindings
-bindsym Print exec grimshot save
 bindsym $mod+Print exec grimshot copy area
 bindsym $mod+Shift+Print exec grimshot save area
-bindsym $mod+Up exec amixer -D pulse sset Master 5%+
-bindsym $mod+Down exec amixer -D pulse sset Master 5%-
+bindsym $mod+Ctrl+Print exec grimshot copy window
+bindsym Print exec grimshot save window
+
+bindsym $mod+Up exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym $mod+Down exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym $mod+Shift+Up exec brightnessctl set 5%+
 bindsym $mod+Shift+Down exec brightnessctl set 5%-
 bindsym $mod+Return exec $term
@@ -172,7 +175,7 @@ smart_gaps on
 gaps inner 5
 include /etc/sway/config.d/*
 input * {
-    xkb_layout dvorak,fr
+    xkb_layout dvorak,fr,us
     xkb_options caps:escape,grp:alt_space_toggle
     xkb_numlock enabled
 }

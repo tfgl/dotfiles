@@ -49,3 +49,13 @@ init_lsp_servers()
 -- lsp_installer ccls doesnt work, use system package manager one
 lsp.ccls.setup {cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())}
 lsp.gopls.setup {cmd = {'gopls'},cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())}
+
+
+vim.cmd [[
+ augroup filetype                                                     
+   au BufRead,BufNewFile *.flex,*.jflex    set filetype=jflex
+   au BufRead,BufNewFile *.cup             set filetype=cup
+ augroup END                                                          
+ au Syntax jflex    so ~/.config/nvim/ftplugin/jflex.vim
+ au Syntax cup    so ~/.config/nvim/ftplugin/cup.vim
+]]

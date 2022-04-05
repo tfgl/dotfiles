@@ -8,3 +8,5 @@
 	amend = git commit --amend
 [pull]
 	rebase = false
+[init]
+	templatedir = ~/.config/localconfig/git_template/

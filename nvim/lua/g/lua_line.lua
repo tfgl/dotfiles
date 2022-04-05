@@ -139,9 +139,6 @@ ins_left({ 'location' })
 
 ins_left({ 'progress', color = { fg = colors.fg, gui = 'bold' } })
 
-ins_left({
-  gps.get_location, cond = gps.is_available
-})
 
 ins_left({
   'diagnostics',
@@ -208,8 +205,7 @@ ins_right({
 ins_right({
   'diff',
   -- Is it me or the symbol for modified us really weird
-  -- symbols = { added = ' ', modified = '柳 ', removed = ' ' },
-  symbols = { added = ' ', modified = ' ', removed = ' ' },
+  symbols = { added = ' ', modified = '柳 ', removed = ' ' },
   diff_color = {
     added = { fg = colors.green },
     modified = { fg = colors.orange },
