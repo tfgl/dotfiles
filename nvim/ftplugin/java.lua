@@ -2,9 +2,6 @@ local HOME = require('os').getenv('HOME')
 local jdtls_install_location = HOME .. '/.local/share/nvim/lsp_servers/jdtls'
 local workspace = HOME .. '/.cache/jdtlsWorkspaces/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 
-print(workspace)
-print(jdtls_install_location)
-
 local config = {
   cmd = {
 

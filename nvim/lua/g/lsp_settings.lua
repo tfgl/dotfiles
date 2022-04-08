@@ -11,7 +11,10 @@ local init_lsp_servers = function()
     "sumneko_lua",
     "bashls",
     "jdtls",
-    "html"
+    "html",
+    "clangd",
+    "gopls",
+    "tsserver"
   }
   local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
@@ -45,11 +48,6 @@ local init_lsp_servers = function()
 end
 
 init_lsp_servers()
-
--- lsp_installer ccls doesnt work, use system package manager one
-lsp.ccls.setup {cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())}
-lsp.gopls.setup {cmd = {'gopls'},cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())}
-
 
 vim.cmd [[
  augroup filetype                                                     
