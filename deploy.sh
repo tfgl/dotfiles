@@ -21,18 +21,14 @@ cd ~/
 ln -sf "$dir/bashrc" ./.bashrc
 ln -sf "$dir/gitconfig" ./.gitconfig
 ln -sf "$dir/xinitrc" ./.xinitrc
-ln -sf "$dir/zshrc" ./.zshrc
-ln -sf "$dir/zshprofile" ./.zshprofile
 
 ln -nsf "$dir/doom.d" ./.doom.d
 
 cd ~/.config
 ln -nsf "$dir/alacritty" ./alacritty
 ln -nsf "$dir/nvim" ./nvim
+ln -nsf "$dir/zsh" ./zsh
 ln -nsf "$dir/sway" ./sway
 ln -nsf "$dir/waybar" ./waybar
 ln -nsf "$dir/tmux" ./tmux
 ln -nsf "$dir/localconfig" ./localconfig
-
-cd ~/Documents
-ln -sf "$dir/bash_alias" ./bash_alias

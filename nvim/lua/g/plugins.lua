@@ -252,6 +252,7 @@ return packer.startup(function(use)
     end
   }
   --]]
+  use "elihunter173/dirbuf.nvim"
 
   use 'vim-test/vim-test'
   if PACKER_BOOTSTRAP then
