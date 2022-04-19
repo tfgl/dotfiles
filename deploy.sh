@@ -18,9 +18,9 @@ fi
 dir=$(pwd)
 
 cd ~/
-ln -sf "$dir/bashrc" ./.bashrc
+#ln -sf "$dir/bashrc" ./.bashrc
 ln -sf "$dir/gitconfig" ./.gitconfig
-ln -sf "$dir/xinitrc" ./.xinitrc
+#ln -sf "$dir/xinitrc" ./.xinitrc
 
 ln -nsf "$dir/doom.d" ./.doom.d
 

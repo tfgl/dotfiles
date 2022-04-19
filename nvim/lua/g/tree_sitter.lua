@@ -29,7 +29,6 @@ local tree_sitter_init = function()
 
     g.completion_matching_strategy_list = {'exact', 'substring', 'fuzzy'}
     ts.setup {
-        ensure_installed = "maintained",
         highlight = {
             enable = true
         },

@@ -110,6 +110,7 @@ nmap("<leader>ca", ":lua vim.lsp.buf.code_action()<CR>")
 -- telescope
 nmap("<leader>.", ":lua require('telescope.builtin').find_files()<CR>")
 nmap("<leader>,", ":lua require('telescope.builtin').buffers()<CR>")
+nmap("<leader>l", "::Telescope file_browser<CR>")
 
 -- Nredtree
 nmap("<leader>'", ":NERDTreeToggle<CR>")

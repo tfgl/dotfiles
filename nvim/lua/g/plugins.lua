@@ -44,8 +44,10 @@ return packer.startup(function(use)
   use 'preservim/nerdtree'
 
   use 'morhetz/gruvbox'
+  use 'folke/tokyonight.nvim'
   use 'crusoexia/vim-dream'
   use {'dracula/vim', as = 'dracula'}
+
   use {
     'SmiteshP/nvim-gps',
     config = function()
@@ -139,18 +141,10 @@ return packer.startup(function(use)
   }
 
   -- telescope
-  use {
-    "nvim-telescope/telescope.nvim",
-    config = function()
-      require('telescope').setup({
-        defaults = {
-          file_ignore_patterns = { "node_modules", ".ccls-cache" },
-          color_devicons = true
-        }
-      })
-    end
-  }
+  use "nvim-telescope/telescope.nvim"
   use "nvim-telescope/telescope-fzy-native.nvim"
+  use "LinArcX/telescope-command-palette.nvim"
+  use "nvim-telescope/telescope-file-browser.nvim"
 
   -- workflow
   use 'SirVer/ultisnips'

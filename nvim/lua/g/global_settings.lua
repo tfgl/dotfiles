@@ -1,5 +1,6 @@
 local opt = vim.opt
 local cmd = vim.cmd
+local g = vim.g
 local HOME = require('os').getenv('HOME')
 
 cmd('syntax on')
@@ -27,3 +28,5 @@ opt.scrolloff       = 8                           -- lines to keep above and bel
 opt.undodir         = HOME..'/.cache/vim/undodir' --
 opt.rtp[#opt.rtp+1] = '/usr/share/vim/vimfiles'   --
 opt.rtp[#opt.rtp+1] = HOME..'/.config/nvim/'      --
+
+g.termdebug         = '/usr/bin/gdb'

@@ -39,6 +39,6 @@ precmd() {
 }
 PS1="%B%{$fg[cyan]%}%~%{$reset_color%}"
 PS1+="\$vcs_info_msg_0_ "
-PS1+="%B%(?:%{$fg_bold[green]%} :%{$fg_bold[red]%} )"
+PS1+="%B%(?:%{$fg_bold[green]%}> :%{$fg_bold[red]%}> )"
 PS1+="%{$reset_color%}"
 RPS1="%{$fg[magenta]%}%B%n@%m%{$reset_color%}"
