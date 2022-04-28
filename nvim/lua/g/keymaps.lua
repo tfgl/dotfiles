@@ -61,6 +61,7 @@ nmap("<leader>fts", ":set ft=sh<CR>")
 nmap("<leader>ot", ":sp | te <CR>")
 nmap("<leader>os", ":vs ~/Documents/neorg/scratchbuff.norg<CR>")
 nmap("<leader>oe", ":e ~/.config/nvim/init.lua<CR>")
+nmap("<leader>od", ":e ~/Documents/")
 
 nmap("<leader>tl", ":set invrelativenumber invnumber<CR>")
 
