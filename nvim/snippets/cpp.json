@@ -1,0 +1,86 @@
+{
+  "Class" : {
+    "prefix": ["class"],
+    "body": [
+      "class $1 {",
+      "private:",
+      "public:",
+      "",
+      "\t$1() {",
+      "\t}",
+      "};"
+    ],
+    "description": "new class"
+  },
+
+  "struct" : {
+    "prefix": ["struct"],
+    "body": [
+      "struct $1 {",
+      "\t$1() {",
+      "\t}",
+      "};"
+    ],
+    "description": "new struct"
+  },
+
+  "fn": {
+    "prefix": ["fn"],
+    "body": [
+      "$1 $2($3) {",
+      "\t$4",
+      "};"
+    ],
+    "description": "new function"
+  },
+
+  "newLine": {
+    "prefix": ["nl"],
+    "body": [
+      "\"\\n\""
+    ]
+  },
+
+  "print": {
+    "prefix": ["print"],
+    "body": [
+      "std::cout << $1;"
+    ]
+  },
+
+  "main": {
+    "prefix": ["main"],
+    "body": [
+      "int main(int argc, const char* argv[]) {",
+      "\t$1",
+      "\treturn 0;",
+      "}"
+    ]
+  },
+
+  "for": {
+    "prefix": ["for"],
+    "body": [
+      "for($1; $2; $3) {",
+      "\t$4",
+      "}"
+    ]
+  },
+
+  "foreach": {
+    "prefix": ["foreach"],
+    "body": [
+      "for(auto& $1: $2) {",
+      "\t$4",
+      "}"
+    ]
+  },
+
+  "template": {
+    "prefix": ["temp"],
+    "body": [
+      "template<$1>",
+      "$2"
+    ]
+  }
+}

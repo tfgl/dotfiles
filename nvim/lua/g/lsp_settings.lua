@@ -56,5 +56,5 @@ vim.cmd [[
    au BufRead,BufNewFile *.cup             set filetype=cup
  augroup END                                                          
  au Syntax jflex    so ~/.config/nvim/ftplugin/jflex.vim
- au Syntax cup    so ~/.config/nvim/ftplugin/cup.vim
+ au Syntax cup      so ~/.config/nvim/ftplugin/cup.vim
 ]]

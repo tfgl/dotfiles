@@ -89,9 +89,14 @@ return packer.startup(function(use)
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
-  use 'quangnguyen30192/cmp-nvim-ultisnips'
+  use 'hrsh7th/cmp-vsnip'
+  use 'hrsh7th/vim-vsnip'
+
+  use 'noahfrederick/vim-composer'
+  use 'noahfrederick/vim-laravel'
 
   use 'mfussenegger/nvim-jdtls'
+  use 'mfussenegger/nvim-dap'
 
   use { "rcarriga/nvim-dap-ui",
     requires = {"mfussenegger/nvim-dap"},
@@ -107,6 +112,8 @@ return packer.startup(function(use)
           repl = "r",
           toggle = "t",
         },
+        --
+        --[[
         sidebar = {
           -- You can change the order of elements in the sidebar
           elements = {
@@ -127,6 +134,28 @@ return packer.startup(function(use)
           size = 10,
           position = "bottom", -- Can be "left", "right", "top", "bottom"
         },
+        --]]
+        layouts = {
+          {
+            elements = {
+              'scopes',
+              'breakpoints',
+              'stacks',
+              'watches',
+            },
+            size = 40,
+            position = 'left',
+          },
+          {
+            elements = {
+              'repl',
+              'console',
+            },
+            size = 10,
+            position = 'bottom',
+          },
+        },
+        --
         floating = {
           max_height = nil, -- These can be integers or a float between 0 and 1.
           max_width = nil, -- Floats will be treated as percentage of your screen.
@@ -137,6 +166,9 @@ return packer.startup(function(use)
         },
         windows = { indent = 1 },
       })
+
+      require('dapui').setup(
+      )
     end
   }
 
@@ -146,67 +178,12 @@ return packer.startup(function(use)
   use "LinArcX/telescope-command-palette.nvim"
   use "nvim-telescope/telescope-file-browser.nvim"
 
-  -- workflow
-  use 'SirVer/ultisnips'
-
-  use {
-    "nvim-neorg/neorg",
-    config = function()
-      require('neorg').setup {
-        -- Tell Neorg what modules to load
-        load = {
-          ["core.defaults"] = {}, -- Load all the default modules
-          ["core.norg.concealer"] = {
-            config = {
-              icons = {
-                todo = {
-                  enabled = true,
-
-                  done = {
-                    enabled = true,
-                    icon = ""
-                  },
-                  pending = {
-                    enabled = true,
-                    icon = ""
-                  },
-                  uncertain = {
-                    enabled = true,
-                    icon = "?"
-                  },
-                  on_hold = {
-                    enabled = true,
-                    icon = ""
-                  }
-                }
-              }
-            }
-          }, -- Allows for use of icons
-          ["core.norg.completion"] = {
-            config = {
-              engine = "nvim-cmp" -- We current support nvim-compe and nvim-cmp only
-            }
-          },
-          ["core.norg.dirman"] = { -- Manage your directories with Neorg
-            config = {
-              workspaces = {
-                my_workspace = "~/Documents/neorg"
-              }
-            }
-          }
-        },
-      }
-    end,
-    requires = "nvim-lua/plenary.nvim"
-  }
-
   use {
     'folke/which-key.nvim',
     config = function()
       require("which-key").setup {}
     end
   }
-
   use "elihunter173/dirbuf.nvim"
 
   use 'vim-test/vim-test'

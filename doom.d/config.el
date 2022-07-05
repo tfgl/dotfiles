@@ -53,4 +53,4 @@
 ;; they are implemented.
 
 (setq
-        projectile-project-search-path '("~/codage/langages/cpp/game" "~/univ/tp/"))
+        projectile-project-search-path '("~/dev/langages/cpp/games" "~/univ/tp/"))

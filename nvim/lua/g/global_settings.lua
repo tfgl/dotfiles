@@ -23,10 +23,12 @@ opt.undofile        = true                        --
 opt.tabstop         = 2				                    -- indent 2
 opt.shiftwidth      = 2				                    -- indent 2
 
-opt.completeopt     = 'menu,menuone,preview'      -- completian, popup menu and preview
+opt.completeopt     = 'menu,menuone,noselect'     -- completian, popup menu and preview
 opt.scrolloff       = 8                           -- lines to keep above and below the cursor
 opt.undodir         = HOME..'/.cache/vim/undodir' --
 opt.rtp[#opt.rtp+1] = '/usr/share/vim/vimfiles'   --
 opt.rtp[#opt.rtp+1] = HOME..'/.config/nvim/'      --
 
 g.termdebug         = '/usr/bin/gdb'
+g.vsnip_snippet_dir = HOME..'/.config/nvim/snippets'
+g.completion_enable_snippet = 'vim-vsnip'

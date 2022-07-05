@@ -10,4 +10,3 @@ require('g.startify')
 require('g.cmp')
 
 require('refactoring').setup({})
-

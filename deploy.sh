@@ -32,3 +32,5 @@ ln -nsf "$dir/sway" ./sway
 ln -nsf "$dir/waybar" ./waybar
 ln -nsf "$dir/tmux" ./tmux
 ln -nsf "$dir/localconfig" ./localconfig
+
+mkdir -p ~/.cache/nvim/sessions

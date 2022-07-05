@@ -1,6 +1,7 @@
 # Read `man 5 sway` for a complete reference.
 ### Variables
 # Logo key. Use Mod1 for Alt.
+exec --no-startup-id autotiling
 set $mod Mod4
 set $left h
 set $down j
@@ -39,7 +40,8 @@ bindsym $mod+Shift+Up exec brightnessctl set 5%+
 bindsym $mod+Shift+Down exec brightnessctl set 5%-
 bindsym $mod+Return exec $term
 bindsym $mod+o exec pavucontrol
-bindsym $mod+f exec MOZ_ENABLE_WAYLAND=1 firefox
+bindsym $mod+f exec brave
+# bindsym $mod+f exec MOZ_ENABLE_WAYLAND=1 firefox
 bindsym $mod+p exec $menu
 bindsym $mod+q kill
 bindsym $mod+t exec $floatTerm -e htop
