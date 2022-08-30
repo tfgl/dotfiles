@@ -33,11 +33,10 @@ local cmp_init = function()
     },
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
-      -- { name = 'neorg' },
-      { name = 'vsnip' }, -- For vsnip users.
+      { name = 'vsnip' },
       -- { name = 'luasnip' }, -- For luasnip users.
       -- { name = 'snippy' }, -- For snippy users.
-      -- { name = 'ultisnips' }, -- For ultisnips users.
+      -- { name = 'neorg' },
     }, {
       { name = 'buffer' },
     })

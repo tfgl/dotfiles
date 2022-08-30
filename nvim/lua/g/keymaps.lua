@@ -40,8 +40,11 @@ vmap("<Leader>ri", [[ <Esc><Cmd>lua require('refactoring').refactor('Inline Vari
 -- dap
 nmap("<Leader>db", ":lua require('dap').toggle_breakpoint()<CR>")
 nmap("<Leader>dn", ":lua require('dap').continue()<CR>")
-nmap("<Leader>dr", ":lua require('dap').repl.open({}, 'vsplit')<CR>")
-nmap("<Leader>do", ":lua require('dapui').open()<CR>")
+nmap("<Leader>dr", ":lua require('dap').repl.toggle({}, 'vsplit')<CR>")
+nmap("<Leader>dsi", ":lua require('dap').step_into()<CR>")
+nmap("<Leader>dso", ":lua require('dap').step_over()<CR>")
+nmap("<Leader>do", ":lua require('dapui').toggle()<CR>")
+nmap("<Leader>td", ":lua require'telescope'.extensions.dap.list_breakpoints{}<CR>")
 
 nmap("<C-j>", "ztM")
 nmap("<C-k>", "zbM")
@@ -63,6 +66,7 @@ nmap("<leader>wo", ":only<CR>")
 nmap("<leader>fs", ":w<CR>")                                                -- save file
 nmap("<leader>fp", ":lua require('g.telescope').dotfiles()<CR>")            -- search dotfiles
 
+nmap("<leader>oa", ":vs ~/Documents/neorg/agenda.norg<CR>")            -- open agenda
 nmap("<Leader>oq", "copen<CR>")                                             -- open quickfixlist
 nmap("<leader>os", ":vs ~/Documents/neorg/scratchbuff.norg<CR>")            -- open scratchbuff
 nmap("<leader>ot", ":sp | te <CR>")                                         -- open terminal
@@ -89,8 +93,10 @@ nmap("<Left>", ":vertical resize -2<CR>")
 nmap("<Down>", ":resize +2<CR>")
 nmap("<Right>", ":vertical resize +2<CR>")
 
-vmap("<leader>r", "\"hy:%s/<C-r>h//gc<left><left><left>")
+nmap("<leader>ral", "viw\"hy:%s/<C-r>h//gc<left><left><left>")
 vmap("<leader>p", "\"_dP")
+
+nmap("<leader>rol", "viw\"hy:s/<C-r>h//g<left><left>")
 
 vmap("<C-c>", "\"+y")
 nmap("Y", "y$")

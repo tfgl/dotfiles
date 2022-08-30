@@ -82,5 +82,16 @@
       "template<$1>",
       "$2"
     ]
+  },
+
+  "chrono": {
+    "prefix": ["chrono"],
+    "body": [
+      "auto $1_BEGIN = std::chrono::high_resolution_clock::now();",
+      "//...",
+      "auto $1_END = std::chrono::high_resolution_clock::now();",
+      "auto $1_DURATION = duration_cast<std::chrono::microseconds>($1_END - $1_BEGIN);",
+      "std::cout << \"$1_DURATION: \" << $1_DURATION << \"\\n\";"
+    ]
   }
 }

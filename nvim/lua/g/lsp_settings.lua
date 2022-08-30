@@ -15,14 +15,18 @@ local init_lsp_servers = function()
     "clangd",
     "gopls",
     "dockerls",
+    "rust-analyzer",
     "tsserver"
   }
   local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
   for _, name in pairs(servers) do
     local server_is_found, server = lsp_installer.get_server(name)
     if server_is_found then
-      lsp[name].setup { capabilities = capabilities }
+      lsp[name].setup {
+        capabilities = capabilities,
+      }
       if not server:is_installed() then
         print("Installing " .. name)
         server:install()
@@ -51,10 +55,10 @@ end
 init_lsp_servers()
 
 vim.cmd [[
- augroup filetype                                                     
+ augroup filetype
    au BufRead,BufNewFile *.flex,*.jflex    set filetype=jflex
    au BufRead,BufNewFile *.cup             set filetype=cup
- augroup END                                                          
+ augroup END
  au Syntax jflex    so ~/.config/nvim/ftplugin/jflex.vim
  au Syntax cup      so ~/.config/nvim/ftplugin/cup.vim
 ]]

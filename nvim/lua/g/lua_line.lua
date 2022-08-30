@@ -2,7 +2,6 @@
 -- Author: shadmansaleh
 -- Credit: glepnir
 local lualine_status, lualine = pcall(require, 'lualine')
-local gps = require('nvim-gps')
 if not lualine_status then
   return
 end

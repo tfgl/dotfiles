@@ -12,6 +12,7 @@ set $menu dmenu
 set $menu wofi -GS run
 set $floatTerm $term --class=floating
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
+
 ### Output configuration
 output * bg ~/.cache/wallpaper fill
 ### Input configuration
@@ -29,23 +30,100 @@ output * bg ~/.cache/wallpaper fill
 # Read `man 5 sway-input` for more information about this section.
 
 ### Key bindings
+# Screen shot
 bindsym $mod+Print exec grimshot copy area
 bindsym $mod+Shift+Print exec grimshot save area
 bindsym $mod+Ctrl+Print exec grimshot copy window
 bindsym Print exec grimshot save window
 
+# Volume
 bindsym $mod+Up exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym $mod+Down exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym $mod+Shift+Up exec brightnessctl set 5%+
+
+# Brightness
 bindsym $mod+Shift+Down exec brightnessctl set 5%-
+
+# Programs
 bindsym $mod+Return exec $term
 bindsym $mod+o exec pavucontrol
 bindsym $mod+f exec brave
-# bindsym $mod+f exec MOZ_ENABLE_WAYLAND=1 firefox
 bindsym $mod+p exec $menu
 bindsym $mod+q kill
 bindsym $mod+t exec $floatTerm -e htop
 
+# Media control
+bindsym $mod+f9 exec mocp -r
+bindsym $mod+f10 exec mocp -G
+bindsym $mod+f11 exec mocp -f
+
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+
+# Exit sway
+bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+
+# Move focus
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# Move focused window
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+# Switch to workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+
+# Split
+bindsym $mod+z splith
+bindsym $mod+v splitv
+
+# Make the current focus fullscreen
+bindsym $mod+F12 fullscreen
+
+# toggle waybar
+bindsym $mod+b exec kill -s USR1 $(pidof waybar)
+
+# Move focused window to the scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+minus scratchpad show
+
+# popup nvim
+bindsym $mod+s exec $floatTerm -e nvim
+
+# enter resize mod
+bindsym $mod+r mode "resize"
+
+# Toggle the current focus between tiling and floating mode
+bindsym $mod+space floating toggle
 for_window [app_id="floating"] {
     floating enable, sticky enable, resize set 75 ppt 60 ppt, border pixel 5
     client.focused #555555 #555555 #ffffff #2e9ef4 #bd93f9
@@ -60,109 +138,17 @@ for_window [app_id="pavucontrol"] floating enable
 # Change normal to inverse to use left mouse button for resizing and right
 # mouse button for dragging.
 floating_modifier $mod normal
-
-# Reload the configuration file
-bindsym $mod+Shift+c reload
-
-# Exit sway (logs you out of your Wayland session)
-bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
-#
-# Moving around:
-#
-# Move your focus around
-bindsym $mod+$left focus left
-bindsym $mod+$down focus down
-bindsym $mod+$up focus up
-bindsym $mod+$right focus right
-# Or use $mod+[up|down|left|right]
-
-# Move the focused window with the same, but add Shift
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right
-#
-# Workspaces:
-#
-# Switch to workspace
-bindsym $mod+1 workspace number 1
-bindsym $mod+2 workspace number 2
-bindsym $mod+3 workspace number 3
-bindsym $mod+4 workspace number 4
-bindsym $mod+5 workspace number 5
-bindsym $mod+6 workspace number 6
-bindsym $mod+7 workspace number 7
-bindsym $mod+8 workspace number 8
-bindsym $mod+9 workspace number 9
-bindsym $mod+0 workspace number 10
-# Move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number 1
-bindsym $mod+Shift+2 move container to workspace number 2
-bindsym $mod+Shift+3 move container to workspace number 3
-bindsym $mod+Shift+4 move container to workspace number 4
-bindsym $mod+Shift+5 move container to workspace number 5
-bindsym $mod+Shift+6 move container to workspace number 6
-bindsym $mod+Shift+7 move container to workspace number 7
-bindsym $mod+Shift+8 move container to workspace number 8
-bindsym $mod+Shift+9 move container to workspace number 9
-bindsym $mod+Shift+0 move container to workspace number 10
-# Note: workspaces can have any name you want, not just numbers.
-# We just use 1-10 as the default.
-#
-# Layout stuff:
-#
-# You can "split" the current object of your focus with
-# $mod+b or $mod+v, for horizontal and vertical splits
-# respectively.
-bindsym $mod+z splith
-bindsym $mod+v splitv
-
-# Switch the current container between different layout styles
-bindsym $mod+e layout toggle split
-
-# Make the current focus fullscreen
-bindsym $mod+F11 fullscreen
-
-bindsym $mod+b exec kill -s USR1 $(pidof waybar)
-
-# Toggle the current focus between tiling and floating mode
-bindsym $mod+space floating toggle
-
-# Swap focus between the tiling area and the floating area
-#bindsym Ctrl+space focus mode_toggle
-
-# Scratchpad:
-#
-# Sway has a "scratchpad", which is a bag of holding for windows.
-# You can send windows there and get them back later.
-
-# Move the currently focused window to the scratchpad
-bindsym $mod+Shift+minus move scratchpad
-
-# Show the next scratchpad window or hide the focused scratchpad window.
-# If there are multiple scratchpad windows, this command cycles through them.
-bindsym $mod+minus scratchpad show
-
-bindsym $mod+s exec $floatTerm -e nvim
-
-bindsym $mod+r mode "resize"
 mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
     bindsym $left resize shrink width 10px
     bindsym $down resize grow height 10px
     bindsym $up resize shrink height 10px
     bindsym $right resize grow width 10px
 
-    # Ditto, with arrow keys
     bindsym Left resize shrink width 10px
     bindsym Down resize grow height 10px
     bindsym Up resize shrink height 10px
     bindsym Right resize grow width 10px
 
-    # Return to default mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
@@ -181,7 +167,7 @@ gaps inner 5
 include /etc/sway/config.d/*
 input * {
     xkb_layout dvorak,fr,us
-    xkb_options caps:escape,grp:alt_space_toggle
+    xkb_options caps:escape,grp:alt_space_toggle,fn:Mod4
     xkb_numlock enabled
 }
 
