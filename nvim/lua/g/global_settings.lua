@@ -1,34 +1,29 @@
-local opt = vim.opt
-local cmd = vim.cmd
-local g = vim.g
 local HOME = require('os').getenv('HOME')
 
-cmd('syntax on')
-cmd('filetype plugin on')
+vim.opt.swapfile            = false                       --
+vim.opt.backup              = false                       --
+vim.opt.wrap                = false                       -- no wrap
+vim.opt.number              = true 			                  -- line number
+vim.opt.relativenumber      = true                        -- relative numbers
+vim.opt.linebreak           = true			                  --  word wrap
+vim.opt.expandtab           = true                        -- convert tab to spaces
+vim.opt.smartindent         = true		                    -- auto indent
+vim.opt.hls                 = true                        -- highlight search
+vim.opt.is                  = true                        -- show highlight while typing
+vim.opt.incsearch           = true			                  -- highlight search
+vim.opt.undofile            = true                        -- undo history
 
-opt.cp              = false			                  -- full vim
-opt.swapfile        = false                       --
-opt.backup          = false                       --
-opt.wrap            = false                       --
-opt.number          = true 			                  -- line number
-opt.relativenumber  = true                        -- relative numbers
-opt.linebreak       = true			                  --  word wrap
-opt.expandtab       = true                        -- convert tab to spaces
-opt.smartindent     = true		                    -- auto indent
-opt.hls             = true                        -- highlight search
-opt.is              = true                        -- show highlight while typing
-opt.incsearch       = true			                  -- highlight search
-opt.undofile        = true                        --
+vim.opt.tabstop             = 2				                    -- indent 2
+vim.opt.shiftwidth          = 2				                    -- indent 2
 
-opt.tabstop         = 2				                    -- indent 2
-opt.shiftwidth      = 2				                    -- indent 2
+vim.opt.completeopt         = 'menu,menuone,noselect'     -- completion, popup menu and preview
+vim.opt.scrolloff           = 8                           -- lines to keep above and below the cursor
+vim.opt.undodir             = HOME..'/.cache/vim/undodir' -- undodir location
+vim.opt.rtp[#vim.opt.rtp+1] = '/usr/share/vim/vimfiles'   -- vim files location
+vim.opt.rtp[#vim.opt.rtp+1] = HOME..'/.config/nvim/'      -- vim files location
 
-opt.completeopt     = 'menu,menuone,noselect'     -- completian, popup menu and preview
-opt.scrolloff       = 8                           -- lines to keep above and below the cursor
-opt.undodir         = HOME..'/.cache/vim/undodir' --
-opt.rtp[#opt.rtp+1] = '/usr/share/vim/vimfiles'   --
-opt.rtp[#opt.rtp+1] = HOME..'/.config/nvim/'      --
+vim.opt_global.mouse        = 'a'
+vim.g.termdebug             = '/usr/bin/gdb'
+vim.o.timeoutlen            = 500                         -- key sequence timeout
 
-g.termdebug         = '/usr/bin/gdb'
-g.vsnip_snippet_dir = HOME..'/.config/nvim/snippets'
-g.completion_enable_snippet = 'vim-vsnip'
+vim.o.fillchars            = 'eob: ,vert: ,fold: '        -- remove annoying characters

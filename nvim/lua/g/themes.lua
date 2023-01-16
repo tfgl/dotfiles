@@ -1,14 +1,15 @@
-local g = vim.g
+THEMES = {
+  tokyonight = "tokyonight",
+  dracula = "dracula",
+}
 
-g.gitgutter_sign_added              = '█'
-g.gitgutter_sign_modified           = '█'
-g.gitgutter_sign_removed            = '█'
-g.gitgutter_sign_removed_first_line = '█'
-g.gitgutter_sign_modified_removed   = '█'
-g.tokyonight_style = "night"
+function SetTheme(theme)
+	theme = theme or "tokyonight"
 
-vim.cmd[[
-    colorscheme dracula
-    autocmd VimEnter * hi Normal ctermbg=none
-    autocmd VimEnter * hi Folded ctermbg=none
-]]
+	vim.cmd.colorscheme(theme)
+	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+  vim.api.nvim_set_hl(0, "SignColumn", {bg = "none" })
+end
+
+SetTheme()

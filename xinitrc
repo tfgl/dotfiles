@@ -24,9 +24,8 @@ fi
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-setxkbmap -layout dvorak &
-setxkbmap -option caps:escape &
-feh --no-fehbg --bg-center ~/.cache/wallpaper &
+setxkbmap -layout dvorak -option caps:escape &
+#feh --no-fehbg --bg-center ~/.cache/wallpaper &
 ~/bin/statusBar &
-numlockx &
+#numlockx &
 exec dwm

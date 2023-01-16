@@ -1,6 +1,4 @@
-local g = vim.g
 local def_opts = { noremap = true, silent = true }
-local term_opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 local keymaps = {v = {}, n = {}, i = {}}
@@ -28,14 +26,8 @@ end
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", def_opts)
-g.mapleader = " "
-g.maplocalleader = " "
-
--- theprimeagen refactor
-vmap("<Leader>re", [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>]], {noremap = true, silent = true, expr = false})
-vmap("<Leader>rf", [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>]], {noremap = true, silent = true, expr = false})
-vmap("<Leader>rv", [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>]], {noremap = true, silent = true, expr = false})
-vmap("<Leader>ri", [[ <Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>]], {noremap = true, silent = true, expr = false})
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- dap
 nmap("<Leader>db", ":lua require('dap').toggle_breakpoint()<CR>")
@@ -45,9 +37,6 @@ nmap("<Leader>dsi", ":lua require('dap').step_into()<CR>")
 nmap("<Leader>dso", ":lua require('dap').step_over()<CR>")
 nmap("<Leader>do", ":lua require('dapui').toggle()<CR>")
 nmap("<Leader>td", ":lua require'telescope'.extensions.dap.list_breakpoints{}<CR>")
-
-nmap("<C-j>", "ztM")
-nmap("<C-k>", "zbM")
 
 nmap("<leader>wj", "<C-w>j")
 nmap("<leader>wk", "<C-w>k")
@@ -65,8 +54,10 @@ nmap("<leader>wo", ":only<CR>")
 -- file operations
 nmap("<leader>fs", ":w<CR>")                                                -- save file
 nmap("<leader>fp", ":lua require('g.telescope').dotfiles()<CR>")            -- search dotfiles
+nmap("<leader>fr", ":lua require('g.ui_components').input('rename file', function(value) vim.cmd('saveas %:p:h/'..value..'|!rm #') end)<CR>")            -- rename a file
+nmap("<leader>nf", ":lua require('g.ui_components').input('new file', function(value) vim.cmd('e %:p:h/'..value) end)<CR>")            -- rename a file
 
-nmap("<leader>oa", ":vs ~/Documents/neorg/agenda.norg<CR>")            -- open agenda
+nmap("<leader>oa", ":vs ~/Documents/neorg/agenda.norg<CR>")                 -- open agenda
 nmap("<Leader>oq", "copen<CR>")                                             -- open quickfixlist
 nmap("<leader>os", ":vs ~/Documents/neorg/scratchbuff.norg<CR>")            -- open scratchbuff
 nmap("<leader>ot", ":sp | te <CR>")                                         -- open terminal
@@ -74,9 +65,13 @@ nmap("<leader>oe", ":e ~/.config/nvim/init.lua<CR>")                        -- o
 nmap("<leader>od", ":e ~/Documents/")                                       -- open Documents folder
 
 nmap("<leader>tl", ":set invrelativenumber invnumber<CR>")                  -- toggle line numbers
-nmap("<leader>tt", ":NERDTreeToggle<CR>")                                   -- toggle nerdtree
+nmap("<leader>tt", ":TroubleToggle<CR>")                                   -- toggle nerdtree
 
 nmap("<leader>nh", ":nohlsearch<CR>")                                       -- hide search hilight
+
+nmap("<leader>u", ":UndotreeToggle<CR>")                                    -- toggle undotree
+
+nmap("<leader>ta", "<cmd>AerialToggle<CR>")
 
 -- nav jump
 nmap("<Leader>qn", ":cnext<CR>")                                            -- next item of quickfixlist
@@ -84,6 +79,13 @@ nmap("<Leader>qN", ":cprevious<CR>")                                        -- p
 nmap("n", "nzzzv")
 nmap("N", "Nzzzv")
 nmap("J", "mzJ`z")
+nmap("<C-h>", "4h")
+nmap("<C-l>", "4l")
+nmap("<C-j>", "ztM")
+nmap("<C-k>", "zbM")
+nmap("<C-n>", "<cmd>AerialNext<CR>")
+nmap("<C-p>", "<cmd>AerialPrev<CR>")
+
 vmap("J", ":m '>+1<CR>gv=gv")
 vmap("K", ":m '<-2<CR>gv=gv")
 
@@ -123,6 +125,7 @@ nmap("<leader>cf", ":lua vim.lsp.buf.references()<CR>")
 nmap("<leader>cr", ":lua vim.lsp.buf.rename()<CR>")
 nmap("<leader>ca", ":lua vim.lsp.buf.code_action()<CR>")
 nmap("<leader>cc", ":make<CR>:copen<CR>")
+nmap("K", ":lua vim.lsp.buf.hover()<CR>")
 
 -- telescope
 nmap("<leader>.", ":lua require('telescope.builtin').find_files()<CR>")
@@ -134,14 +137,16 @@ nmap("<leader>fw", ":lua require('telescope.builtin').live_grep()<CR>")
 
 imap("<M-2>", "é")
 imap("<M-7>", "è")
+imap("<M-.>", "ê")
 imap("<M-9>", "ç")
 imap("<M-0>", "à")
+imap("<M-a>", "â")
+imap("<M-o>", "ô")
+imap("<M-u>", "û")
+imap("<M-i>", "î")
+imap("<S-M-i>", "ï")
 imap("<M-->", "ù")
 
-vim.cmd[[
-  imap <expr> <tab> vsnip#available(1) ? "<Plug>(vsnip-expand-or-jump)" : "<tab>"
-  imap <expr> <S-tab> vsnip#jumpable(-1) ? "<Plug>(vsnip-jump-prev)"    : "<C-tab>"
-]]
-
+nmap("<leader>zz", ":ZenMode<CR>")
 local M = {nmap = nmap, imap = imap, vmap = vmap}
 return M
