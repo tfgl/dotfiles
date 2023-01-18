@@ -27,8 +27,7 @@ ln -nsf "$dir/zsh" ./zsh
 ln -nsf "$dir/sway" ./sway
 ln -nsf "$dir/waybar" ./waybar
 ln -nsf "$dir/tmux" ./tmux
+ln -nsf "$dir/mpd" ./mpd
 ln -nsf "$dir/localconfig" ./localconfig
 
-mkdir -p "$XDG_HOME_CACHE"/nvim/sessions
-
-echo "Add 'source path/to/dotfiles at the end of /profile"
+echo "Add 'source path/to/dotfiles/localconfig/env at the end of /etc/profile"

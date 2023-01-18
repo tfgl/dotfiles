@@ -48,13 +48,12 @@ nmap("<Leader>td", ":lua require'telescope'.extensions.dap.list_breakpoints{}<CR
 -- file operations
 nmap("<leader>fs", ":w<CR>")                                                -- save file
 nmap("<leader>fp", ":lua require('g.telescope').dotfiles()<CR>")            -- search dotfiles
-nmap("<leader>fr", ":lua require('g.ui_components').input('rename file', function(value) vim.cmd('saveas %:p:h/'..value..'|!rm #') end)<CR>")            -- rename a file
-nmap("<leader>nf", ":lua require('g.ui_components').input('new file', function(value) vim.cmd('e %:p:h/'..value) end)<CR>")            -- rename a file
 nmap("<leader>oa", ":vs ~/Documents/neorg/agenda.norg<CR>")                 -- open agenda
 nmap("<leader>os", ":vs ~/Documents/neorg/scratchbuff.norg<CR>")            -- open scratchbuff
 nmap("<leader>ot", ":sp | te <CR>")                                         -- open terminal
 nmap("<leader>oe", ":e ~/.config/nvim/init.lua<CR>")                        -- open init.lua
 nmap("<leader>od", ":e ~/Documents/")                                       -- open Documents folder
+nmap("<leader>sd", ":SessionManager delete_session<CR>")                    -- delete session
 
 -- nav jump
 nmap("n", "nzzzv")

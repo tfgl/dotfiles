@@ -1,4 +1,7 @@
-require'nvim-treesitter.configs'.setup {
+local treesitter_sts, treesitter = pcall(require, "nvim-treesitter.configs")
+if not treesitter_sts then return end
+
+treesitter.setup {
   ensure_installed = {
     "help",
     "c",

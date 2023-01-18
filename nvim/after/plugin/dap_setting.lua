@@ -1,4 +1,6 @@
-local dap = require('dap')
+local dap_sts, dap = pcall(require, "dap")
+if not dap_sts then return end
+
 dap.adapters.lldb = {
   type = 'executable',
   command = '/usr/bin/lldb-vscode', -- adjust as needed, must be absolute path

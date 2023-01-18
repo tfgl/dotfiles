@@ -2,9 +2,7 @@
 -- Author: shadmansaleh
 -- Credit: glepnir
 local lualine_status, lualine = pcall(require, 'lualine')
-if not lualine_status then
-  return
-end
+if not lualine_status then return end
 
 local colors = {
   bg       = '#202328',

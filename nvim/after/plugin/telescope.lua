@@ -1,4 +1,6 @@
-local telescope = require('telescope')
+local telescope_sts, telescope = pcall(require, "telescope")
+if not telescope_sts then return end
+
 local config = {}
 
 config.extensions = {

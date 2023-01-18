@@ -20,8 +20,9 @@ packer.startup(function(use)
   use 'kyazdani42/nvim-web-devicons'
   use 'nvim-lualine/lualine.nvim'
   use 'MunifTanjim/nui.nvim'
-  use 'folke/which-key.nvim'
+  use {'folke/which-key.nvim', config = function () require'which-key'.setup{} end}
   use 'folke/zen-mode.nvim'
+  use "stevearc/dressing.nvim"
 
   -- GIT & HISTORY
   use 'lewis6991/gitsigns.nvim'
@@ -70,4 +71,6 @@ packer.startup(function(use)
   use 'ggandor/leap.nvim'
   use 'stevearc/aerial.nvim'
   use 'folke/trouble.nvim'
+  use 'Shatur/neovim-session-manager'
 end)
+

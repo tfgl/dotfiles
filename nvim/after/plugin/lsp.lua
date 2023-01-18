@@ -1,4 +1,5 @@
-local lsp = require("lsp-zero")
+local lsp_sts, lsp = pcall(require, "lsp-zero")
+if not lsp_sts then return end
 
 lsp.preset("recommended")
 
