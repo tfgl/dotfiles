@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [[ ! -f ./localconfig/env ]]; then
-    echo copying env.default to env
+    echo appending env.default to env
 
     # write the shebang and the DOTFILES variables first (needed for other var defined in env.default)
     printf "#!/bin/env sh\nDOTFILES=$(pwd)\n" > ./localconfig/env
@@ -17,15 +17,11 @@ fi
 
 dir=$(pwd)
 
-cd ~/
-#ln -sf "$dir/bashrc" ./.bashrc
-ln -sf "$dir/gitconfig" ./.gitconfig
-#ln -sf "$dir/xinitrc" ./.xinitrc
-
+cd "$XDG_CONFIG_HOME"
 ln -nsf "$dir/doom.d" ./.doom.d
-
-cd ~/.config
-ln -nsf "$dir/alacritty" ./alacritty
+ln -nsf "$dir/git" ./git
+ln -nsf "$dir/hypr" ./hypr
+ln -nsf "$dir/foot" ./foot
 ln -nsf "$dir/nvim" ./nvim
 ln -nsf "$dir/zsh" ./zsh
 ln -nsf "$dir/sway" ./sway
@@ -33,4 +29,6 @@ ln -nsf "$dir/waybar" ./waybar
 ln -nsf "$dir/tmux" ./tmux
 ln -nsf "$dir/localconfig" ./localconfig
 
-mkdir -p ~/.cache/nvim/sessions
+mkdir -p "$XDG_HOME_CACHE"/nvim/sessions
+
+echo "Add 'source path/to/dotfiles at the end of /profile"
