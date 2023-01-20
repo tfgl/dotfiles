@@ -10,3 +10,5 @@
 	rebase = false
 [init]
 	templatedir = ~/.config/localconfig/git_template/
+[protocol "file"]
+	allow = always

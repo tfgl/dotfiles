@@ -1,0 +1,12 @@
+(include "bar/bar.yuck")
+
+(defwindow dropmenu
+  :monitor 0
+  :stacking "bottom"
+  :geometry (geometry :width "800px" :height "75px" :anchor "bottom center")
+  :exclusive false              	
+  (box :class "main-container"
+       :space-evenly "true"
+    (box :halign "center"
+      (button :onclick "foot"
+              :onhover "eww onpen vol" "btn"))))

@@ -1,0 +1,50 @@
+(defpoll time :interval "20s" `date +" %a %d %b %R"`)
+(defvar wrksp_nbr "1")
+(defvar vlm "10")
+
+(defwidget metric [label value onchange]
+  (box :orientation "h"
+       :class "metric"
+       :space-evenly false
+       (box :class "label" label)
+       (scale :min 0
+              :max 101
+              :active {onchange != ""}
+              :value value
+              :onchange onchange)))
+
+(defwidget workspace [number]
+  (box :class "${wrksp_nbr == number ? 'current_workspace' : 'workspace'}"
+    (button :onclick ""
+      "")))
+
+(defwindow vol
+  :monitor 0
+  :geometry (geometry :x "95%")
+  :stacking "overlay"
+  (box
+    :class "popup"
+    vlm))
+
+(defwindow bar
+  :monitor 0
+  :geometry (geometry :width "100%" :anchor "top center")
+  :exclusive true                                                                                                                    	
+  (box
+    (box :class "main-container" :space-evenly true
+      (box :halign "start"
+        (label :text "${time}"))
+
+      (box :halign "center"
+        (workspace :number "1")
+        (workspace :number "2")
+        (workspace :number "3")
+        (workspace :number "4")
+        (workspace :number "5"))
+
+      (eventbox :halign "end"
+        :onhover "eww open vol"
+        :onhoverlost "eww close vol"
+        (metric :label "墳"
+                :value vlm
+                :onchange "eww update vlm={}; pactl set-sink-volume @DEFAULT_SINK@ {}%")))))

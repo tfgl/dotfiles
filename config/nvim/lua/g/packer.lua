@@ -52,6 +52,7 @@ packer.startup(function(use)
 		  {'rafamadriz/friendly-snippets'},
     }
   }
+  use 'elkowar/yuck.vim'
 
   -- TELESCOPE
   use "nvim-telescope/telescope.nvim"

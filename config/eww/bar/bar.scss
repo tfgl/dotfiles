@@ -1,0 +1,60 @@
+.bar {
+	background-color: transparent;
+}
+
+.main-container {
+  padding:8px 12px;
+  //background-color: #1a1a1a;
+  //background-color: #0f0f0f;
+  background-color: #191919;
+  border-radius: 12px;
+  margin: 3px 3px 0 3px;
+}
+
+.metric scale trough highlight {
+  all: unset;
+  background-color: #5AEDBC; //#D36E5D;
+  color: #000000;
+  border-radius: 10px;
+}
+
+.workspace label {
+  margin-left: 20px;
+  color: #4E4E4E;
+}
+
+.current_workspace label{
+  color: #5AEDBC;
+  margin-left: 20px;
+}
+
+.metric scale trough {
+  all: unset;
+  background-color: #4e4e4e;
+  border-radius: 50px;
+  min-height: 3px;
+  min-width: 50px;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+.popup {
+  all: unset;
+  background-color: #17171f;
+  color: #ff0000;
+  border-radius: 100%;
+  border: 2px solid #4f4f6f;
+  padding: 10px;
+}
+
+.popup through highlight {
+  all: unset;
+  background-color: #000;
+  color: #000;
+}
+
+.popup scale through highlight {
+  all: unset;
+  background-color: #000;
+  color: #000;
+}

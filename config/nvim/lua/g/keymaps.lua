@@ -110,14 +110,6 @@ nmap("<leader>go", ":diffget //2<CR>")
 nmap("<leader>gcc", ":Git commit<CR>")
 nmap("<leader>gca", ":lua require('g.ui_components').input('commit msg', function(value) vim.cmd('Git ac '..value) end)<CR>") -- commit all change
 
--- code
-nmap("<leader>cd", ":lua vim.lsp.buf.definition()<CR>")
-nmap("<leader>cf", ":lua vim.lsp.buf.references()<CR>")
-nmap("<leader>cr", ":lua vim.lsp.buf.rename()<CR>")
-nmap("<leader>ca", ":lua vim.lsp.buf.code_action()<CR>")
-nmap("<leader>cc", ":make<CR>:copen<CR>")
-nmap("K", ":lua vim.lsp.buf.hover()<CR>")
-
 -- telescope
 nmap("<leader>.", ":lua require('telescope.builtin').find_files()<CR>")
 nmap("<leader>,", ":lua require('telescope.builtin').buffers()<CR>")

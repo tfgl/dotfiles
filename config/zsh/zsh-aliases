@@ -1,8 +1,6 @@
 #!/bin/sh
 alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git' ';' -print0 | xargs -I {} -0 git -C {} pull -q"
 
-# alias lvim='nvim -u ~/.local/share/lunarvim/lvim/init.lua --cmd "set runtimepath+=~/.local/share/lunarvim/lvim"'
-
 # get fastest mirrors
 alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
 alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
@@ -14,14 +12,6 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias ls='ls --color=auto'
-
-# confirm before overwriting something
-alias cpc="cp -i"
-alias mvc='mv -i'
-
-# easier to read disk
-alias df='df -h'     # human-readable sizes
-alias free='free -m' # show sizes in MB
 
 # get top process eating memory
 alias psmem='ps auxf | sort -nr -k 4 | head -5'
@@ -38,22 +28,21 @@ alias gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
 # For when keys break
 alias archlinx-fix-keys="sudo pacman-key --init && sudo pacman-key --populate archlinux && sudo pacman-key --refresh-keys"
 
+# git
 alias gst="git status"
 alias gca="git add . && git commit"
 
 # !!!
 alias o='xdg-open'
 
-alias evim='pushd $DOTFILES/nvim; vim init.lua; popd'
+# vim
+alias evim='pushd $DOTFILES/config/nvim; vim init.lua; popd'
 alias vim='nvim'
 alias v='nvim'
-alias vs='vim -S .session.vim'
-alias vc='vim ~/.dotfiles'
 alias ealias='vim ~/.config/zsh/zsh-aliases'
-alias so='source ~/.config/zsh/zsh-aliases'
-alias n='vim ~/Documents/neorg/scratchbuff.norg'
-alias dot='pushd ~/.dotfiles'
+alias salias='source ~/.config/zsh/zsh-aliases'
 
+# move between marked dir
 alias f='target="$(cat $FAVDIR | fzf --height=40% --layout=reverse)"; [[ -n $target ]] && cd $target'
 alias fa='favorite -a'
 alias fx='target="$(cat $FAVDIR | fzf --height=40% --layout=reverse)"; [[ -n $target ]] && favorite -d $target'
@@ -63,7 +52,7 @@ alias efav='vim $FAVDIR'
 alias tree='tree -C'
 alias t='tree -L 1'
 alias val='valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s'
-alias mocp='mocp -M "$XDG_CONFIG_HOME"/moc -T /usr/share/moc/themes/nightly_theme'
+alias mocp='mocp -M "$XDG_CONFIG_HOME"/moc'
 alias wget='wget --hsts-file="$XDG_DATA_HOME/wget-hsts"'
 alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME"/yarn/config'
 
@@ -72,21 +61,24 @@ alias Xbrightness='xrandr --output $(getDisplay) --brightness $1'
 
 alias lynx='lynx -cookie_file=.cache/cookies -accept_all_cookies -vikeys duckduckgo.com'
 alias ipub='echo "$(curl -s ipinfo.io/ip)"'
-alias modelio='GTK_THEME=Adwaita:ligth /opt/modelio/modelio'
 
 alias cpost='curl -X POST -H "Content-Type: application/json"'
-
-alias todo='vim ~/Documents/neorg/todo.neorg'
-
-alias h='cut -d";" -f2 <<< $(cat ~/.zsh_history) | fzf'
 
 alias link='ln -sfivr'
 alias ip='ip -c'
 
+# docker
 alias dc='docker-compose'
 alias dcu='docker-compose up -d'
 alias dcb='docker-compose build'
 alias dlf='docker logs --follow'
 
+# game
 alias factorio='~/games/factorio/bin/x64/factorio'
 alias rimworld='cd ~/games/rimworld/1.3.3066/; proton RimWorldWin64.exe'
+alias minecraft='java -jar ~/games/minecraft/minecraft.jar'
+
+alias temp='sensors | grep CPUTIN | cut -f1 -d\( | cut -f2 -d+'
+alias 2ogg='ffmpeg -i "file:$1" -c:v libtheora -q:v 7 -c:a libvorbis -q:a 4 "file:$2"'
+
+alias cpk='hyprpicker -a'
